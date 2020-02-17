@@ -35,6 +35,6 @@ export default {
     height: 49px;
   }
   .active {
-    color: pink;
+    color: red;
   }
 </style>
