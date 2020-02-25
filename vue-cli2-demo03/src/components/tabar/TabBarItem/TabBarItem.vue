@@ -1,49 +1,52 @@
 <template>
-    <div @click="rouerLink" class="tar-bar-item">
-      <div  v-if="!isActive">
+    <div @click="judgeActive()" class="tar-bar-item">
+      <div  v-if="isActive">
         <slot name="item-icon-active"></slot>
       </div>
       <div v-else>
         <slot name="item-icon"></slot>
       </div>
-      <div :style="{color: judge}">
+      <div :style="defaultStyle">
         <slot name="item-text"></slot>
       </div>
     </div>
 </template>
 
 <script>
-// eslint-disable-next-line no-unused-vars
-import PubSub from 'pubsub.js'
 export default {
   name: 'TabBarItem',
+  data () {
+    return {
+    }
+  },
   props: {
     path: {
       type: String,
       require: true,
-      default: '/home'
+      default () {
+        return '/home'
+      }
     },
     checkColor: {
       type: String,
       require: true,
-      default: 'red'
-    }
-  },
-  data () {
-    return {
+      default () {
+        return 'red'
+      }
     }
   },
   computed: {
     isActive () {
       return this.$route.path.indexOf(this.path) !== -1
     },
-    judge () {
-      return this.$route.path.indexOf(this.path) !== -1 ? this.checkColor : ''
+    defaultStyle () {
+      return this.isActive ? {color: this.checkColor} : {}
     }
   },
   methods: {
-    rouerLink () {
+    judgeActive () {
       this.$router.push(this.path)
+      // this.isActive = !this.isActive
     }
   }
 }

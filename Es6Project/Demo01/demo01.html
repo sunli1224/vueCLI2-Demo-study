@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo01</title>
+</head>
+<body>
+<script>
+    new Promise(((resolve, reject) => {
+        resolve()//处理成功异步请求
+    })).then(() => {
+        setTimeout(()=>{
+            console.log("success msg");
+            console.log("success msg");
+        },1000)
+        new Promise(((resolve, reject) => {
+            reject("error msg")
+        })).catch((data) => {
+            setTimeout(()=>{
+                console.log('data=' + data)
+            },1000)
+        })
+    })
+</script>
+</body>
+</html>
