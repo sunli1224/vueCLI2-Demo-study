@@ -4,13 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import axios from 'axios'
-
-Vue.prototype.$ajax = axios
-Vue.config.productionTip = false
-
-axios.defaults.baseURL = 'http://123.207.32.32:8000'
-axios.defaults.timeout = 5000
+// import axios from 'axios'
+//
+// Vue.prototype.$ajax = axios
+// Vue.config.productionTip = false
+//
+// axios.defaults.baseURL = 'http://123.207.32.32:8000'
+// axios.defaults.timeout = 5000
 
 /* eslint-disable no-new */
 new Vue({

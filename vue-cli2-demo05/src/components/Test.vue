@@ -10,15 +10,51 @@
 </template>
 
 <script>
+import {request} from '../network/request'
+
 export default {
   name: 'Test',
   methods: {
     getData () {
-      this.$ajax.get('/home/multidata').then(res => {
+      // request({
+      //   url: '/home/multidata'
+      // }).then(res => {
+      //   console.log(res.data.data.banner)
+      // }).catch(err => {
+      //   console.log(err)
+      // })
+      // request({
+      //   url: '/home/multidata'
+      // }, res => {
+      //   console.log(res.data.data.banner)
+      // }, err => {
+      //   console.log(err)
+      // })
+      // request({
+      //   baseconfig: {
+      //     url: '/home/multidata'
+      //   },
+      //   success: function (res) {
+      //     console.log(res.data.data.banner)
+      //   },
+      //   failure: function (err) {
+      //     console.log(err)
+      //   }
+      // })
+
+      request({
+        url: '/home/multidata'
+      }).then(res => {
         console.log(res.data.data.banner)
       }).catch(err => {
         console.log(err)
       })
+
+      // this.$ajax.get('/home/multidata').then(res => {
+      //   console.log(res.data.data.banner)
+      // }).catch(err => {
+      //   console.log(err)
+      // })
     },
     getPageData () {
       this.$ajax.post({
